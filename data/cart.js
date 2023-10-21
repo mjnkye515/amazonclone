@@ -4,7 +4,7 @@ function savetoStorage(){
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-export function addtoCart(productId){
+export function addtoCart(productId, value){
 
   let matchingItem;
 
@@ -14,12 +14,12 @@ export function addtoCart(productId){
     }
   });
   if (matchingItem){
-    matchingItem.quantity +=1;
+    matchingItem.quantity += value;
   }
   else{
     cart.push({
       productId : productId,
-      quantity:1
+      quantity: value
     });
   }
 
